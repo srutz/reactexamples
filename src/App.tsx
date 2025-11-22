@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import { parseAsInteger, useQueryState } from 'nuqs'
 import { fetchRecipe, type Recipe } from "./Recipe";
 import { RecipeView } from "./RecipeView";
 
 export function App() {
-    const [recipeId, setRecipeId] = useState(1);
+    const [recipeId, setRecipeId] = useQueryState("id",
+        parseAsInteger.withDefault(1),
+    );    
+    
     const [recipe, setRecipe] = useState<Recipe | null>(null);
     useEffect(() => {
         (async () => {
