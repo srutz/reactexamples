@@ -18,3 +18,11 @@ export type Recipe = {
     userId: number
 }
 
+export async function fetchRecipe(id: number) {
+    const response = await fetch(`https://dummyjson.com/recipe/${id}`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch recipe');
+    }
+    const data = await response.json() as Recipe;
+    return data;
+}
