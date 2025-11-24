@@ -6,8 +6,7 @@
 - Features added to the base template:
   - Tailwind CSS for utility-first styling
   - `clsx` and `tailwind-merge` for conditional and conflict-free class name management
-  - Tailwind-Animated for pre-defined animations
-
+ 
 ## Setup
 
 1. Ensure you have Node.js installed on your machine.
