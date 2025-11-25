@@ -5,11 +5,15 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { HelpPage } from './HelpPage'
 import { MainPage } from './MainPage'
+import { RecipePage } from './RecipePage'
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
     {
         path: "/", element: <MainPage/>
+    },
+    {
+        path: "/recipe/:id", element: <RecipePage/>
     },
     {
         path: "/help", element: <HelpPage />
