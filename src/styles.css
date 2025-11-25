@@ -4,3 +4,6 @@ button {
   @apply bg-blue-500 text-white font-bold py-1 px-4 disabled:bg-gray-200 rounded hover:bg-blue-400 cursor-pointer;
 }
 
+a {
+    @apply hover:underline hover:cursor-pointer
+}
