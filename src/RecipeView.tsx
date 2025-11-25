@@ -3,7 +3,7 @@ import type { Recipe } from "./Recipe";
 export function RecipeView({ recipe } : { recipe: Recipe }) {
     return (
         <div className="max-w-[600px] m-2 p-4 bg-neutral-100 border border-neutral-300 rounded shadow-xl">
-            <p className="text-lg font-bold">{recipe.name}</p>
+            <p className="text-lg font-bold">{recipe.name} {recipe.id}</p>
             <div className="ml-4">
             <p className="mt-2 font-semibold">Summary:</p>
                 <p>Prep Time: {recipe.prepTimeMinutes} minutes</p>
