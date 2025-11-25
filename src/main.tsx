@@ -1,15 +1,15 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import "./styles.css"
-import { App } from './App'
 import { createBrowserRouter, RouterProvider } from "react-router"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { HelpPage } from './HelpPage'
+import { MainPage } from './MainPage'
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
     {
-        path: "/", element: <App/>
+        path: "/", element: <MainPage/>
     },
     {
         path: "/help", element: <HelpPage />

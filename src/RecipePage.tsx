@@ -3,7 +3,7 @@ import { RecipeView } from "./RecipeView";
 import { useRecipe } from "./hooks/useRecipe";
 import { useNavigate } from "react-router";
 
-export function App() {
+export function RecipePage() {
     const navigate = useNavigate();
     const [recipeId, setRecipeId] = useState(() => 5);
     const { data: recipe, isFetching: fetching, refetch } = useRecipe(recipeId)
