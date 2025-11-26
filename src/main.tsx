@@ -7,6 +7,7 @@ import { HelpPage } from './HelpPage'
 import { MainPage } from './MainPage'
 import { RecipePage } from './RecipePage'
 import { AppPage } from './AppPage'
+import { RecipeListPage } from './RecipesListPage'
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -14,6 +15,9 @@ const router = createBrowserRouter([
         path: "/", element: <AppPage />, children: [
             {
                 path: "/", element: <MainPage />
+            },
+            {
+                path: "/recipes", element: <RecipeListPage />
             },
             {
                 path: "/recipe/:id", element: <RecipePage />
@@ -26,7 +30,6 @@ const router = createBrowserRouter([
             }
         ]
     },
-
 ])
 
 createRoot(document.getElementById('root')!).render(

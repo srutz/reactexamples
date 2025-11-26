@@ -12,7 +12,7 @@ export function RecipePage() {
         navigate("/help")
     }
     return (
-        <div className="w-[100vw] h-[100vh] bg-red-300 overflow-auto flex flex-col items-center">
+        <div className="bg-red-300 overflow-auto flex flex-col items-center">
             <div className="flex gap-2 items-center mt-4 mb-2">
                 <button disabled={fetching}
                         onClick={() => navigate("/recipe/" + Math.max(1, recipeId - 1))
