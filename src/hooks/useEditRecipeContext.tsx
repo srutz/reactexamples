@@ -18,11 +18,14 @@ export function EditRecipeContextProvider({ recipeId, children}
     const { data: originalRecipe } = useRecipe(recipeId)
     const [ recipe, setRecipe ] = useStateLocalStorage("editrecipe", null);
     useEffect(() => {
-        const copy = {
-            ...originalRecipe
+        if (!recipe) {
+            // init recipe with database object if not editing
+            const copy = {
+                ...originalRecipe
+            }
+            setRecipe(copy);
         }
-        setRecipe(copy);
-    }, [originalRecipe, setRecipe])
+    }, [recipe, originalRecipe, setRecipe])
     return (
         <EditRecipeContext.Provider value={{
             recipe,
@@ -31,6 +34,7 @@ export function EditRecipeContextProvider({ recipeId, children}
     )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useEditRecipeContext() {
     const context = useContext(EditRecipeContext)
     if (!context) {

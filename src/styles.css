@@ -11,3 +11,7 @@ a {
 .active {
     @apply font-semibold
 }
+
+input {
+    @apply border border-neutral-300 rounded px-2 py-1;
+}

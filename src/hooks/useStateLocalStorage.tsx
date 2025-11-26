@@ -12,12 +12,18 @@ export function useStateLocalStorage<T>(key: string, initial: T | (() => T)) {
             return v
         } else {
             const v = initial
-            localStorage.setItem(key, JSON.stringify(v))
+            if (v) {
+                localStorage.setItem(key, JSON.stringify(v))
+            } else {
+                localStorage.removeItem(key)
+            }
             return v
         }
     })
     useEffect(() => {
-        localStorage.setItem(key, JSON.stringify(value))
+        if (value) {
+            localStorage.setItem(key, JSON.stringify(value))
+        }
     }, [key, value])
 
     return [ value, setValue ]

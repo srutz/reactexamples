@@ -72,8 +72,11 @@ export function RecipePage() {
                 <button onClick={() => refetch()}>↻</button>
                 <button onClick={downloadPDF}>PDF</button>
                 {recipe && (
-                    <button onClick={() => 
+                    <button onClick={() => {
+                        // end current editing
+                        localStorage.removeItem("editrecipe")
                         navigate(`/recipe/edit/${recipe.id}/part1`)
+                    }
                     }>Edit</button>
                 )}
             </div>
