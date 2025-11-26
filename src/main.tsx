@@ -22,7 +22,7 @@ const router = createBrowserRouter([
                 path: "/help", element: <HelpPage />
             },
             {
-                path: "*", element: <div>Die Seite gibt es nicht</div>
+                path: "*", element: <div className="p-4">Die Seite gibt es nicht</div>
             }
         ]
     },
