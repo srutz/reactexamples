@@ -7,3 +7,7 @@ button {
 a {
     @apply hover:underline hover:cursor-pointer
 }
+
+.active {
+    @apply font-semibold
+}

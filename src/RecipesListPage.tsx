@@ -1,22 +1,27 @@
 import { useNavigate } from "react-router";
 import { useRecipes } from "./hooks/useRecipes";
 import type { Recipe } from "./Recipe";
-import { RecipeView } from "./RecipeView";
 
 export function RecipeListPage() {
     const { data: recipesResponse } = useRecipes({
-        skip: 10,
-        limit: 50
+        skip: 2,
+        limit: 5
      })
      if (!recipesResponse) {
         return null;
      }
      const recipes = recipesResponse.recipes
      return (
-        <div className="flex flex-wrap gap-2 justify-center">
-            {recipes.map((recipe) => {
-                return <RecipeThumb key={recipe.id} recipe={recipe} />
-            })}
+        <div className="h-1 grow flex flex-col gap-2">
+            <div className="flex px-4">
+                Showing {recipesResponse.skip + 1} - {recipesResponse.skip + recipesResponse.limit}
+                {" "} von {recipesResponse.total}
+            </div>
+            <div className="flex flex-wrap gap-2 justify-center">
+                {recipes.map((recipe) => {
+                    return <RecipeThumb key={recipe.id} recipe={recipe} />
+                })}
+            </div>
         </div>
      )
 }
