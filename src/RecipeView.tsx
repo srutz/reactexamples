@@ -1,5 +1,6 @@
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import type { Recipe } from "./Recipe";
+import { useStateLocalStorage } from "./hooks/useStateLocalStorage";
 
 export function RecipeView({ recipe } : { recipe: Recipe }) {
     return (
@@ -17,14 +18,14 @@ export function RecipeView({ recipe } : { recipe: Recipe }) {
                 </div>
                 <img src={recipe.image} className="h-[200px] rounded-xl border border-neutral-300" />
             </div>
-            <Section title="Ingredients">
+            <Section title="Ingredients" storageKey="k1">
                 <ul>
                     {recipe.ingredients.map((item, index) => (
                         <li key={index} className="ml-8 list-disc">{item}</li>
                     ))}
                 </ul>
             </Section>
-            <Section title="Instructions">
+            <Section title="Instructions" storageKey="k2">
                 <ul>
                     {recipe.instructions.map((item, index) => (
                         <li key={index} className="ml-8 list-decimal">{item}</li>
@@ -35,16 +36,18 @@ export function RecipeView({ recipe } : { recipe: Recipe }) {
     )
 }
 
-function Section({ title, children } : { title: string, children: ReactNode }) {
-    const [expanded, setExpanded] = useState(true)
+function Section({ title, children, storageKey } : { 
+    title: string, children: ReactNode, storageKey: string 
+}) {
+    const [expanded, setExpanded] = useStateLocalStorage(storageKey, true)
     return (
-        <>
+        <section className="flex flex-col">
             <p onClick={() => setExpanded(!expanded)} 
                 className="mt-2 font-semibold select-none cursor-pointer">
                     {title} {expanded ? ":" : "..."}
             </p>
             {expanded && children}
-        </>
+        </section>
     )
 
 }
