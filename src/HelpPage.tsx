@@ -1,5 +1,7 @@
 import { NavLink } from "react-router"
 
+console.log("HelpPage loaded");
+
 export function HelpPage() {
     return (
         <div className="grow bg-indigo-300 flex flex-col gap-2 items-center">

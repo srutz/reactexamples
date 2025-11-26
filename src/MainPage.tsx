@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router";
 
+console.log("MainPage loaded");
+
 export function MainPage() {
     const navigate = useNavigate();
     const handleRecipe = () => {
