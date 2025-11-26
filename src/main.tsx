@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router"
 import { AppPage } from './AppPage'
 import { MainPage } from './MainPage'
-import { RecipeEditPage } from './RecipeEditPage'
+import { Part1Page, Part2Page, RecipeEditPage } from './RecipeEditPage'
 import { RecipePage } from './RecipePage'
 import { RecipeListPage } from './RecipesListPage'
 import "./styles.css"
@@ -22,7 +22,10 @@ const router = createBrowserRouter([
                 path: "/recipe/:id", element: <RecipePage />
             },
             {
-                path: "/recipe/edit/:id", element: <RecipeEditPage />
+                path: "/recipe/edit/:id", element: <RecipeEditPage />, children: [
+                     { path: "part1", element: <Part1Page />},
+                     { path: "part2", element: <Part2Page />},
+                ]
             },
             {
                 path: "/help",

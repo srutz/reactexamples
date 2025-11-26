@@ -72,7 +72,9 @@ export function RecipePage() {
                 <button onClick={() => refetch()}>↻</button>
                 <button onClick={downloadPDF}>PDF</button>
                 {recipe && (
-                    <button onClick={() => navigate("/recipe/edit/" + recipe.id)}>Edit</button>
+                    <button onClick={() => 
+                        navigate(`/recipe/edit/${recipe.id}/part1`)
+                    }>Edit</button>
                 )}
             </div>
         </div>)
