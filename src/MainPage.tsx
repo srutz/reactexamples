@@ -3,12 +3,12 @@ import { useNavigate } from "react-router";
 export function MainPage() {
     const navigate = useNavigate();
     const handleRecipe = () => {
-        navigate("/recipe/1")
+        navigate("/recipes")
     }
     return (
-        <div className="grow bg-orange-300 flex flex-col gap-2 items-center">
-            <div>Main-Page lorem ipsum</div>
-            <button onClick={handleRecipe}>Go to recipe 1</button>
+        <div className="grow flex flex-col gap-2 items-center">
+            <h1 className="my-4 text-4xl">Your recipe app</h1>
+            <button onClick={handleRecipe}>Go to the recipes</button>
         </div>
     )
 }
