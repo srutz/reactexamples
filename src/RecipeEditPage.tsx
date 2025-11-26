@@ -75,6 +75,7 @@ export function Part1Page() {
 
 export function Part2Page() {
     const { recipe, setRecipe } = useEditRecipeContext()
+    console.log("rerender...")
     return recipe && (
         <div className="p-4 flex flex-col">
             <div className="flex flex-col">
@@ -94,6 +95,9 @@ export function Part2Page() {
                         caloriesPerServing: Number.parseInt(e.target.value || "0")
                     })
                 }}></input>
+                <div className="text-sm text-red-700">
+                    {recipe.caloriesPerServing > 200 ? "Macht dick" : ""}
+                </div>
             </div>
         </div>
     )
