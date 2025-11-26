@@ -6,9 +6,14 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { HelpPage } from './HelpPage'
 import { MainPage } from './MainPage'
 import { RecipePage } from './RecipePage'
+import { AppPage } from './AppPage'
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
+    {
+        path: "/", element: <AppPage/>
+    },
+    
     {
         path: "/", element: <MainPage/>
     },
