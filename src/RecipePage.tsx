@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { RecipeView } from "./RecipeView";
 import { useRecipe } from "./hooks/useRecipe";
-import { useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 
 export function RecipePage() {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ export function RecipePage() {
     const handleHelp = () => {
         navigate("/help")
     }
-    return recipe && (
+    return (
         <div className="w-[100vw] h-[100vh] bg-red-300 overflow-auto flex flex-col items-center">
             <div className="flex gap-2 items-center mt-4 mb-2">
                 <button disabled={fetching}
@@ -22,8 +23,13 @@ export function RecipePage() {
                 <button onClick={() => refetch()}>Reload</button>
                 <button onClick={handleHelp}>Go to help</button>
             </div>
-                <RecipeView recipe={recipe} />
+                {recipe ? (
+                    <RecipeView recipe={recipe} />
+                ) : (
+                    <div>Loading recipe {recipeId} ...</div>
+                )}
         </div>)
 }
+
 
 
