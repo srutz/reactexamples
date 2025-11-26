@@ -17,6 +17,7 @@ export type Recipe = {
     tags: string[]
     userId: number
     image?: string
+    mealType?: string
 }
 
 export async function fetchRecipe(id: number) {

@@ -19,6 +19,7 @@ export function useRecipes(options : { skip: number, limit?: number}) {
             const data = await r.json()
             return data as RecipesResponse  
         },
+        placeholderData: d => d,
         staleTime: 1_000_000,
         gcTime: 4_000_000,
     })
