@@ -11,21 +11,22 @@ import { AppPage } from './AppPage'
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
     {
-        path: "/", element: <AppPage/>
+        path: "/", element: <AppPage />, children: [
+            {
+                path: "/", element: <MainPage />
+            },
+            {
+                path: "/recipe/:id", element: <RecipePage />
+            },
+            {
+                path: "/help", element: <HelpPage />
+            },
+            {
+                path: "*", element: <div>Die Seite gibt es nicht</div>
+            }
+        ]
     },
-    
-    {
-        path: "/", element: <MainPage/>
-    },
-    {
-        path: "/recipe/:id", element: <RecipePage/>
-    },
-    {
-        path: "/help", element: <HelpPage />
-    },
-    {
-        path: "*", element: <div>Die Seite gibt es nicht</div>
-    }
+
 ])
 
 createRoot(document.getElementById('root')!).render(
